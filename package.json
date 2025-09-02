@@ -1,6 +1,7 @@
 {
   "name": "my-wakili",
   "main": "expo-router/entry",
+  "author": "divin3circle",
   "version": "1.0.0",
   "scripts": {
     "start": "expo start",

@@ -37,6 +37,13 @@
     ],
     "experiments": {
       "typedRoutes": true
-    }
+    },
+    "extra": {
+      "router": {},
+      "eas": {
+        "projectId": "d485116e-9534-436b-8345-accc61d8c1aa"
+      }
+    },
+    "owner": "sylus.abel"
   }
 }
