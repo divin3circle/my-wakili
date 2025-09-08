@@ -12,17 +12,36 @@ import { Label } from '@/components/ui/label';
 import { Separator } from '@/components/ui/separator';
 import { Text } from '@/components/ui/text';
 import * as React from 'react';
-import { Pressable, type TextInput, View } from 'react-native';
+import { ActivityIndicator, Pressable, type TextInput, View } from 'react-native';
+import { useState } from 'react';
+import { getAuth, signInWithEmailAndPassword } from "@react-native-firebase/auth"
 
 export function SignInForm() {
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [loading, setLoading] = useState(false);
+
   const passwordInputRef = React.useRef<TextInput>(null);
 
   function onEmailSubmitEditing() {
     passwordInputRef.current?.focus();
   }
 
-  function onSubmit() {
-    // TODO: Submit form and navigate to protected screen if successful
+  async function onSubmit() {
+    console.warn("email", email)
+    console.warn("password", password)
+    setLoading(true);
+    try {
+      await signInWithEmailAndPassword(getAuth(), email, password);
+      alert("Login successful!")
+    } catch (error) {
+      setLoading(false)
+      console.log(error)
+    } finally {
+      setLoading(false);
+    }
+
+
   }
 
   return (
@@ -35,7 +54,7 @@ export function SignInForm() {
           <CardDescription className="text-center sm:text-left" style={{
             fontFamily: "Nunito"
           }}>
-            Welcome back! Please sign in to continue
+            Glad to see you back! Please sign in to continue
           </CardDescription>
         </CardHeader>
         <CardContent className="gap-6">
@@ -46,9 +65,11 @@ export function SignInForm() {
               }}>Email</Label>
               <Input
                 id="email"
-                placeholder="m@example.com"
+                placeholder="sylusabel@icloud.com"
                 keyboardType="email-address"
                 autoComplete="email"
+                value={email}
+                onChangeText={setEmail}
                 autoCapitalize="none"
                 onSubmitEditing={onEmailSubmitEditing}
                 returnKeyType="next"
@@ -80,13 +101,21 @@ export function SignInForm() {
                 id="password"
                 secureTextEntry
                 returnKeyType="send"
+                value={password}
+                onChangeText={setPassword}
                 onSubmitEditing={onSubmit}
               />
             </View>
-            <Button className="w-full" onPress={onSubmit}>
-              <Text style={{
-                fontFamily: "Nunito"
-              }}>Continue</Text>
+            <Button className="w-full flex items-center justify-center flex-col" onPress={onSubmit}>
+              {
+                loading ? (
+                  <ActivityIndicator size="small" />
+                ) : (
+                  <Text style={{
+                    fontFamily: "Nunito"
+                  }}>Continue</Text>
+                )
+              }
             </Button>
           </View>
           <View className="text-center text-sm flex flex-row gap-1 items-center justify-center">

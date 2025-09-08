@@ -22,7 +22,7 @@ export default function Index() {
             fontFamily: "Nunito"
           }}
         >
-          By siging into My Wakili App you agree to the tems of use outlined here.
+          By siging into My Wakili App you agree to the terms of use outlined here.
         </Text>
       </View>
     </ScrollView>
