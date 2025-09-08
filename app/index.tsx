@@ -1,19 +1,30 @@
-import { Button } from "@/components/ui/button";
-import { Text, View } from "react-native";
+import { ScrollView, View, Text } from 'react-native';
+import { SignInForm } from '@/components/sign-in-form';
+import { useColorScheme } from '@/hooks/useColorScheme';
+import { THEME } from '@/lib/theme';
 
 export default function Index() {
+  const colorScheme = useColorScheme();
   return (
-    <View
+    <ScrollView
       style={{
-        flex: 1,
-        justifyContent: "center",
-        alignItems: "center",
+        backgroundColor: colorScheme === "dark" ? THEME.dark.background : THEME.light.background,
       }}
-    >
-      <Button className="rounded-xl bg-rose-500">
-        <Text>Hello Sylus</Text>
-      </Button>
-      <Text className="text-red-500 text-2xl font-bold">Edit app/index.tsx to edit this screen.</Text>
-    </View>
+      keyboardShouldPersistTaps="handled"
+      contentContainerClassName="sm:flex-1 items-center justify-center p-4 py-8 sm:py-4 sm:p-6 mt-safe"
+      keyboardDismissMode="interactive">
+      <View className="w-full max-w-sm">
+        <SignInForm />
+      </View>
+      <View className='mt-12'>
+        <Text className="font-xs text-muted-foreground"
+          style={{
+            fontFamily: "Nunito"
+          }}
+        >
+          By siging into My Wakili App you agree to the tems of use outlined here.
+        </Text>
+      </View>
+    </ScrollView>
   );
 }

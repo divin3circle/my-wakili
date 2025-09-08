@@ -1,0 +1,54 @@
+{
+  "project_info": {
+    "project_number": "1015022726474",
+    "project_id": "my-wakili-client",
+    "storage_bucket": "my-wakili-client.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:1015022726474:android:9fb60bf08fc0ca2423e5b3",
+        "android_client_info": {
+          "package_name": "com.anonymous.mywakili"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "1015022726474-teoef2hq9r0dbt2kavr7q5dqu0sih1q7.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.anonymous.mywakili",
+            "certificate_hash": "5e8f16062ea3cd2c4a0d547876baa6f38cabf625"
+          }
+        },
+        {
+          "client_id": "1015022726474-jfoj064pn5gj2r3el8am3vju4u3m7o1h.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyC_UFdP6EJm59uUDqkDtRLvH_6uHf_dE_4"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "1015022726474-jfoj064pn5gj2r3el8am3vju4u3m7o1h.apps.googleusercontent.com",
+              "client_type": 3
+            },
+            {
+              "client_id": "1015022726474-2smpv42n7ln2fut4aestfkqefat44t8a.apps.googleusercontent.com",
+              "client_type": 2,
+              "ios_info": {
+                "bundle_id": "com.anonymous.mywakili"
+              }
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
